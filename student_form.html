@@ -1,0 +1,164 @@
+<html>
+<head>
+<title>Student details</title>
+</head>
+<body>
+<style>
+	p  {
+	color: black;
+	font-family: courier;
+	font-size: 100%;
+	padding: 25px 20px 20px 25px;
+	}
+	div{
+	  background-color:#1569C7;
+	  padding-top: 20px;
+	  padding-right: 80px;
+	  padding-bottom: 20px;
+	  padding-left: 80px;
+	  margin-right: 5%;
+	  margin-left: 5%;
+	  border: 2px solid white;
+	  border-radius: 5px;
+	  position: center
+	}
+	div.h{
+	  background-color:FFFFCC;
+	  padding-top: 5px;
+	  padding-right: 80px;
+	  padding-bottom: 5px;
+	  padding-left: 80px;
+	  margin-right: 20%;
+	  margin-left: 20%;
+	  border: 2px ;
+	  border-radius: 15px;
+	  position: center
+
+	  }
+	  
+	  input.h{
+	  	  position: absolute;
+	  left: 48%;
+	  width: 200px;
+	  }
+	  
+	  input.q{
+	  position: absolute;
+	  margin-top:50px;
+	  color:blue;
+	  font-size:18px;
+	  font-family: "Times New Roman", Times, serif;
+	  }
+	  
+	  h1{
+	  text-align:center;
+	  position: center;
+	  color:white;
+	  }
+	  
+	  h2{
+	  text-align:left;
+	  position: center;
+	  }
+	  
+	  h4{
+	  text-align:center-left;
+	  position: center;
+	  }
+	  
+	  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+	input[type=number] {
+  -moz-appearance:textfield;
+}
+</style>
+
+<script type = "text/javascript">
+function myFunction(){
+ var emailID = document.getElementById("mail").value;
+         atpos = emailID.indexOf("@");
+         dotpos = emailID.lastIndexOf(".");
+         
+         if (atpos < 1 || ( dotpos - atpos < 2 )) {
+            alert("Please enter correct email ID")
+            document.getElementById("mail").focus() ;
+            return false;
+		}
+		
+		 return(true);
+}
+
+</script>
+
+<form method="post" action="" style="background-color:white;">
+<p>
+<div>
+<h1 style="position:center">Student Details</h1>
+<hr>
+<br>
+  <div class="h">
+	  <h2>Personal Details</h2>
+	  <h4>First name:
+	  <input class="h" type="text" id="txt_1" name="firstname" placeholder="Your name" required ><br><br>
+	  Last name:
+	  <input class="h" type="text" name="lastname" placeholder="Your last name" required><br><br>
+	  Class:
+	  <input class="h" type="number" name="quantity" min="1" max="10" placeholder="class" required><br><br>
+	  Date of Birth:
+	  <input class="h" type="date" name="bday" max="2020-01-15" required><br><br>
+	  <form>
+	  Gender:
+	  <input type="radio" name="gender" value="male" required> Male
+	  <input type="radio" name="gender" value="female"> Female
+	  <input type="radio" name="gender" value="other"> Other<br><br>
+	  </form>
+  </div>
+<br>
+  <div class="h">
+		<h2>Parent's Details</h2>
+		<h4>Father's name:
+		<input class="h" type="text" name="fname" placeholder="full name" required><br><br>
+		Mother's name:
+		<input class="h" type="text" name="fname" placeholder="full name" required><br><br>
+  </div>
+  
+ <br>
+  <div class="h">
+		<h2>Contact Details</h2>
+		<h4>E-mail:
+		<input class="h" type="email" name="email" id="mail" placeholder="eg:abc@xyz.com" required><br><br>
+		Phone number:
+	   <input class="h" type="number" name="quantity" min="1000000000" max="9999999999" placeholder="eg:XXXXXXXXXX" required><br><br>
+  
+  </div>
+  <br>
+  <div class="h">
+		<h2>Address</h2>
+		<h4>Address line1:
+		<input class="h" type="text" name="address1" placeholder="building number/house number/street" required><br><br>
+		Address line2:
+		<input class="h" type="text" name="address2"placeholder="area/locality/city"  ><br><br>
+		District:
+		<input class="h" type="text" name="district" placeholder="Your district..." required><br><br>
+		State:
+		<input class="h" type="text" name="state" placeholder="Your state..." required><br><br>
+		PIN:
+		<input class="h" type="number" name="quantity" min="100000" max="999999" placeholder="eg:XXXXXX" required><br><br>
+		Country:
+		<select required >
+           <option value = "">None</option>
+           <option value = "1">USA</option>
+           <option value = "2">UK</option>
+           <option value = "3">INDIA</option>
+  </div>
+  <br>
+  <br>
+  <input class="q" type="submit" onclick="myFunction()" value="SUBMIT" style="display: block; margin-top:20px auto; width:30%; height:28px;size:7; background-color:white" >
+</div>  
+ <p>
+</form>
+</body>
+</html>
