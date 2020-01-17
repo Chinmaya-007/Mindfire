@@ -1,81 +1,107 @@
 <html>
-<head>
-<title>Student details</title>
-<link rel="stylesheet" href="studentDetails.css">
-</head>
-<body>
-<script src="studentDetails.js">
-</script>
-<form method="post" action="" style="background-color:white;">
-<p>
-<div>
-<h1 style="position:center">Student Details</h1>
-<hr>
-<br>
-  <div class="h">
-	  <h2>Personal Details</h2>
-	  <h4>First name:<sup class="star">*</sup>
-	  <input class="h" type="text" id="txt_1" name="firstname" placeholder="Your name" required ><br><br>
-	  Last name:<sup class="star">*</sup>
-	  <input class="h" type="text" name="lastname" placeholder="Your last name" required><br><br>
-	  Class:<sup class="star">*</sup>
-	  <input class="h" type="number" name="quantity" min="1" max="10" placeholder="class" required><br><br>
-	  Date of Birth:
-	  <input class="h" type="date" name="bday" max="2020-01-15" required><br><br>
-	  <form>
-	  Gender:<sup class="star">*</sup>
-	  <input type="radio" name="gender" value="male" required> Male
-	  <input type="radio" name="gender" value="female"> Female
-	  <input type="radio" name="gender" value="other"> Other<br><br>
-	  </form>
-  </div>
-<br>
-  <div class="h">
-		<h2>Parent's Details</h2>
-		<h4>Father's name:<sup class="star">*</sup>
-		<input class="h" type="text" name="fname" placeholder="full name" required><br><br>
-		Mother's name:<sup class="star">*</sup>
-		<input class="h" type="text" name="fname" placeholder="full name" required><br><br>
-  </div>
+	<head>
+		<title>Student details</title>
+		<link rel="stylesheet" href="studentDetails.css">
+		<script type="text/javascript" src="studentDetails.js"></script>
+	</head>
+	<body>
+		<form method="post" action="#" name="studentDetails" onsubmit="return(validate());" style="background-color:white;">
+			<p>
+				<div>
+					<h1 style="position:center">Student Details</h1>
+					<hr>
+					<br>
+					<div class="h">
+						<h2>Personal Details</h2>
+						<h4>First name:<sup class="star">*</sup>
+						<input class="h" type="text" id="txt_1" name="firstName" placeholder="Your name"><br><br>
+						Last name:<sup class="star">*</sup>
+						<input class="h" type="text" name="lastName" placeholder="Your last name" ><br><br>
+						Class:<sup class="star">*</sup>
+						<input class="h" type="number" name="class" min="1" max="10" placeholder="class" ><br><br>
+						Date of Birth:<sup class="star">*</sup>
+						<input class="h" type="date" name="dob" max="2020-01-15" ><br><br>
+						<form>
+							Gender:<sup class="star">*</sup>
+							<input type="radio" name="gender" value="male" > Male
+							<input type="radio" name="gender" value="female"> Female
+							<input type="radio" name="gender" value="other"> Other<br><br>
+						</form>
+					</div>
+					
+					<br>
+
+					<div class="h">
+						<h2>Parent's Details</h2>
+						<h4>Father's name:<sup class="star">*</sup>
+						<input class="h" type="text" name="fatherName" placeholder="full name" ><br><br>
+						Mother's name:<sup class="star">*</sup>
+						<input class="h" type="text" name="motherName" placeholder="full name" ><br><br>
+					</div>
   
- <br>
-  <div class="h">
-		<h2>Contact Details</h2>
-		<h4>E-mail:<sup class="star">*</sup>
-		<input class="h" type="email" name="email" id="mail" placeholder="eg:abc@xyz.com" required><br><br>
-		Phone number:<sup class="star">*</sup>
-	   <input class="h" type="tel" name="phoneNumber" placeholder="eg:0123456789" required><br><br>
-		Alt. E-mail:
-		<input class="h" type="email" name="altEmail" id="altMail" placeholder="eg:abc@xyz.com" required><br><br>
-		Alt. Phone no.:
-	   <input class="h" type="tel" name="altPhoneNumber"placeholder="eg:123456789" required><br><br>
+					<br>
+ 
+					<div class="h">
+						<h2>Contact Details</h2>
+						<h4>E-mail:<sup class="star">*</sup>
+						<input class="h" type="email" name="email" id="mail" placeholder="eg:abc@xyz.com" ><br><br>
+						Phone number:<sup class="star">*</sup>
+					   <input class="h" type="tel" name="phoneNumber" placeholder="eg:0123456789" ><br><br>
+						Alt. E-mail:
+						<input class="h" type="email" name="altEmail" id="altMail" placeholder="eg:abc@xyz.com" ><br><br>
+						Alt. Phone no.:
+					   <input class="h" type="tel" name="altPhoneNumber"placeholder="eg:123456789" ><br><br>
+					</div>
   
-  </div>
-  <br>
-  <div class="h">
-		<h2>Address</h2>
-		<h4>Address line1:<sup class="star">*</sup>
-		<input class="h" type="text" name="address1" placeholder="building number/house number/street" required><br><br>
-		Address line2:<sup class="star">*</sup>
-		<input class="h" type="text" name="address2"placeholder="area/locality/city"  ><br><br>
-		District:<sup class="star">*</sup>
-		<input class="h" type="text" name="district" placeholder="Your district..." required><br><br>
-		State:<sup class="star">*</sup>
-		<input class="h" type="text" name="state" placeholder="Your state..." required><br><br>
-		PIN:<sup class="star">*</sup>
-		<input class="h" type="number" name="quantity" min="100000" max="999999" placeholder="eg:XXXXXX" required><br><br>
-		Country:<sup class="star">*</sup>
-		<select required >
-           <option value = "">None</option>
-           <option value = "1">USA</option>
-           <option value = "2">UK</option>
-           <option value = "3">INDIA</option>
-  </div>
-  <br>
-  <br>
-  <input class="q" type="submit" onclick="myFunction()" value="SUBMIT" style="display: block; margin-top:20px auto; width:30%; height:28px;size:7; background-color:white" >
-</div>  
- <p>
-</form>
-</body>
+					<br>
+  
+					<div class="h">
+						<h2>Current Address</h2>
+						<h4>Address line1:<sup class="star">*</sup>
+						<input class="h" type="text" name="address1" placeholder="building number/house number/street" ><br><br>
+						Address line2:<sup class="star">*</sup>
+						<input class="h" type="text" name="address2"placeholder="area/locality/city"  ><br><br>
+						District:<sup class="star">*</sup>
+						<input class="h" type="text" name="district" placeholder="Your district..." ><br><br>
+						State:<sup class="star">*</sup>
+						<input class="h" type="text" name="state" placeholder="Your state..." ><br><br>
+						PIN:<sup class="star">*</sup>
+						<input class="h" type="number" name="pinCode" min="100000" max="999999" placeholder="eg:XXXXXX" ><br><br>
+						Country:<sup class="star">*</sup>
+						<select required name="country" ><br>
+						   <option value = "">None</option>
+						   <option value = "1">USA</option>
+						   <option value = "2">UK</option>
+						   <option value = "3">INDIA</option>
+						</select>
+						
+						<br>
+						<br>
+						
+						<input style="margin-top:10px" type="checkbox" name="filladdress" onclick="fillAddress(this.form)" /> Present address same as permanent address.<br /><br>
+						
+						<h2>Permanent Address</h2>
+						<h4>Address line1:<sup class="star">*</sup>
+						<input class="h" type="text" name="pAddress1" placeholder="building number/house number/street" ><br><br>
+						Address line2:<sup class="star">*</sup>
+						<input class="h" type="text" name="pAddress2"placeholder="area/locality/city"  ><br><br>
+						District:<sup class="star">*</sup>
+						<input class="h" type="text" name="pDistrict" placeholder="Your district..." ><br><br>
+						State:<sup class="star">*</sup>
+						<input class="h" type="text" name="pState" placeholder="Your state..." ><br><br>
+						PIN:<sup class="star">*</sup>
+						<input class="h" type="number" name="pPinCode" min="100000" max="999999" placeholder="eg:XXXXXX" ><br><br>
+						Country:<sup class="star">*</sup>
+						<select name="pCountry" >
+						   <option value = "">None</option>
+						   <option value = "1">USA</option>
+						   <option value = "2">UK</option>
+						   <option value = "3">INDIA</option>
+						
+				  </div>
+				  <input class="q" type="submit" onclick="validate()" value="SUBMIT" style="display: block; margin-top:30px auto; width:24%; height:28px;size:7; background-color:white ; position:center" >
+				</div>  
+			<p>
+		</form>
+	</body>
 </html>

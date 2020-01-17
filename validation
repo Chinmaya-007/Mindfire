@@ -1,20 +1,18 @@
-function validate()
-{
  if( document.studentDetails.firstName.value == "" )
    {
-     alert( "Please provide your First name!" );
+     alert( "Please provide your Name!" );
      document.studentDetails.firstName.focus() ;
      return false;
    }
    if( document.studentDetails.lastName.value == "" )
    {
-     alert( "Please provide your Last name!" );
+     alert( "Please provide your Name!" );
      document.studentDetails.lastName.focus() ;
      return false;
    }
    if( document.studentDetails.class.value == "" )
    {
-     alert( "Please provide your class!" );
+     alert( "Please provide your Name!" );
      document.studentDetails.class.focus() ;
      return false;
    }
@@ -91,26 +89,3 @@ function validate()
      return false;
    }   
 return( true );
-}
-function fillAddress(f)
-    {
-        if (f.filladdress.checked == true)
-        {
-			f.pAddress1.value=f.address1.value;
-            f.pAddress2.value=f.address2.value;
-			f.pDistrict.value=f.district.value;
-			f.pState.value=f.state.value;
-			f.pCountry.value=f.country.value;
-			f.pPinCode.value=f.pinCode.value;
-           
-        }
-        else if (filladdress.checked == false)
-        {
-            f.pAddress1.value='';
-            f.pAddress2.value='';
-			f.pDistrict.value='';
-			f.pState.value='';
-			f.pCountry.value='';
-			f.pPinCode.value='';
-        }
-    }
