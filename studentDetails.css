@@ -22,7 +22,7 @@ div{
 		position: center
 	}
 
-div.h{
+div.childDiv{
 		background-color:FFFFCC;
 		padding-top: 5px;
 		padding-right: 80px;
@@ -35,7 +35,7 @@ div.h{
 		position: center
 	  }
 	  
-input.h{
+input.type1{
 	  	position: absolute;
 		left: 48%;
 		width: 200px;

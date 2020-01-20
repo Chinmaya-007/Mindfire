@@ -1,3 +1,6 @@
+document.studentDetails.submit.addEventListener("click",validate);
+
+
 function validate()
 {
  if( document.studentDetails.firstName.value == "" )
@@ -89,7 +92,11 @@ function validate()
      alert( "Please provide a pincode in the format ######." );
      document.studentDetails.pinCode.focus() ;
      return false;
-   }   
+   }
+   if( document.myForm.Country.value == "-1" ) {
+    alert( "Please provide your country!" );
+    return false;
+ }   
 return( true );
 }
 function fillAddress(f)
@@ -112,5 +119,7 @@ function fillAddress(f)
 			f.pState.value='';
 			f.pCountry.value='';
 			f.pPinCode.value='';
+
         }
+
     }
