@@ -1,70 +1,97 @@
-p  {
-		color: black;
-		font-family: courier;
-		font-size: 100%;
-		padding: 25px 20px 20px 25px;
-	}
+.baseDiv {
+	color: black;
+	font-family: courier;
+	font-size: 100%;
+	padding: 25px 20px 20px 25px;
+}
 
 .star{
-		color:red;
-	}
+	color:red;
+}
+table{
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 90%;
+}
+  
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+  
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+.parentDiv{
+	background-color:#1569C7;
+	padding-top: 20px;
+	padding-right: 80px;
+	padding-bottom: 40px;
+	padding-left: 80px;
+	margin-right: 5%;
+	margin-left: 5%;
+	border: 2px solid white;
+	border-radius: 5px;
+	position: center
+}
 
-div{
-		background-color:#1569C7;
-		padding-top: 20px;
-		padding-right: 80px;
-		padding-bottom: 40px;
-		padding-left: 80px;
-		margin-right: 5%;
-		margin-left: 5%;
-		border: 2px solid white;
-		border-radius: 5px;
-		position: center
-	}
+.childDiv{
+	background-color:FFFFCC;
+	padding-top: 5px;
+	padding-right: 80px;
+	padding-bottom: 5px;
+	padding-left: 80px;
+	margin-right: 10%;
+	margin-left: 10%;
+	border: 2px ;
+	border-radius: 15px;
+	position: center
+}
+	  
+.type1{
+	position: absolute;
+	left: 48%;
+	width: 200px;
+}
 
-div.childDiv{
-		background-color:FFFFCC;
-		padding-top: 5px;
-		padding-right: 80px;
-		padding-bottom: 5px;
-		padding-left: 80px;
-		margin-right: 20%;
-		margin-left: 20%;
-		border: 2px ;
-		border-radius: 15px;
-		position: center
-	  }
+.hiddenclass{
+	visibility: hidden;
+	margin-left: 38%;
+	color: red;
+}
+	
+.type2{
+	position: absolute;
+	margin-left:330px;
+	margin-top:30px;
+	color:#4040a1;
+	background-color: white;
+	display: block;
+	margin-top:20px auto;
+	width:24%;
+	height:28px;
+	size:7;
+	font-size:18px;
+	font-family: "Times New Roman", Times, serif;
+}
 	  
-input.type1{
-	  	position: absolute;
-		left: 48%;
-		width: 200px;
-		}
+h1{
+	text-align:center;
+	position: center;
+	color:white;
+}
 	  
-input.q{
-		position: absolute;
-		margin-left:70px;
-		margin-top:50px;
-		color:#4040a1;
-		font-size:18px;
-		font-family: "Times New Roman", Times, serif;
-		}
+h2{
+	text-align:left;
+	position: center;	
+}
 	  
-h1	{
-		text-align:center;
-		position: center;
-		color:white;
-	}
-	  
-h2	{
-		text-align:left;
-		position: center;
-	 }
-	  
-h4	{
-		text-align:center-left;
-		position: center;
-	}
+h4{
+	text-align:center-left;
+	position: center;
+	margin-left: 12%;
+}
 	  
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button 

@@ -5,28 +5,31 @@
 		<script type="text/javascript" src="studentDetails.js"></script>
 	</head>
 	<body>
-		<form method="post" action="#" name="studentDetails" onsubmit="return(validate());" style="background-color:white;">
-			<p>
-				<div>
+
+		<form method="post" id="myForm" name="studentDetails" style="background-color:white;">
+			<div class="baseDiv">
+				<div class="parentDiv">
 					<h1 style="position:center">Student Details</h1>
 					<hr>
 					<br>
 					<div class="childDiv">
 						<h2>Personal Details</h2>
 						<h4>First name:<sup class="star">*</sup>
-						<input class="type1" type="text" id="txt_1" name="firstName" placeholder="Your name"><br><br>
+						<input class="type1" type="text" name="firstName" id="firstName" placeholder="Your name" onkeyup='saveValue(this);' ><br>
+						<tr><label class="hiddenclass" id="message1">Enter valid first name</label></tr>
+						<br>
 						Last name:<sup class="star">*</sup>
-						<input class="type1" type="text" name="lastName" placeholder="Your last name" ><br><br>
+						<input class="type1" type="text" name="lastName" id="lastName" placeholder="Your last name" onkeyup='saveValue(this);' ><br>
+						<tr> <label class="hiddenclass" id="message2">Enter a valid last name</label></tr>
+						<br>
 						Class:<sup class="star">*</sup>
-						<input class="type1" type="number" name="class" min="1" max="10" placeholder="class" ><br><br>
+						<input class="type1" type="number" name="class" id="class" min="1" max="10" placeholder="class form 1 to 10"onkeyup='saveValue(this);' ><br>
+						<tr> <label class="hiddenclass" id="message3">Enter your class</label></tr>
+						<br>
 						Date of Birth:<sup class="star">*</sup>
-						<input class="type1" type="date" name="dob" max="2020-01-15" ><br><br>
-						<form>
-							Gender:<sup class="star">*</sup>
-							<input type="radio" name="gender" value="male" > Male
-							<input type="radio" name="gender" value="female"> Female
-							<input type="radio" name="gender" value="other"> Other<br><br>
-						</form>
+						<input class="type1" type="date" name="dob" id="dob" placeholder="DD/MM/YYYY" max="2020-01-15" onkeyup='saveValue(this);' ><br>
+						<tr> <label class="hiddenclass" id="message4">Enter your DOB</label></tr>
+						<br>
 					</div>
 					
 					<br>
@@ -34,9 +37,11 @@
 					<div class="childDiv">
 						<h2>Parent's Details</h2>
 						<h4>Father's name:<sup class="star">*</sup>
-						<input class="type1" type="text" name="fatherName" placeholder="full name" ><br><br>
+						<input class="type1" type="text" name="fatherName" id="fatherName" placeholder="full name" onkeyup='saveValue(this);' ><br>
+						<tr> <label class="hiddenclass" id="message6">Enter father's name</label></tr><br>
 						Mother's name:<sup class="star">*</sup>
-						<input class="type1" type="text" name="motherName" placeholder="full name" ><br><br>
+						<input class="type1" type="text" name="motherName" id="motherName" placeholder="full name" onkeyup='saveValue(this);' ><br>
+						<tr> <label class="hiddenclass" id="message7">Enter mother's name</label></tr><br>
 					</div>
 
 					<br>
@@ -44,13 +49,17 @@
 					<div class="childDiv">
 						<h2>Contact Details</h2>
 						<h4>E-mail:<sup class="star">*</sup>
-						<input class="type1" type="email" name="email" id="mail" placeholder="eg:abc@xyz.com" ><br><br>
+						<input class="type1" type="email" name="email" id="email" placeholder="eg:abc@xyz.com" onkeyup='saveValue(this);' ><br>
+						<tr> <label class="hiddenclass" id="message8">Enter a valid Email</label></tr><br>
 						Phone number:<sup class="star">*</sup>
-					   <input class="type1" type="tel" name="phoneNumber" placeholder="eg:0123456789" ><br><br>
+					   <input class="type1" type="tel" name="phoneNumber" id="phoneNumber" placeholder="eg:0123456789" onkeyup='saveValue(this);'><br>
+					   <tr> <label class="hiddenclass" id="message9">Enter a valid Ph.no.</label></tr><br>
 						Alt. E-mail:
-						<input class="type1" type="email" name="altEmail" id="altMail" placeholder="eg:abc@xyz.com" ><br><br>
+						<input class="type1" type="email" name="altEmail" id="altMail" placeholder="eg:abc@xyz.com" onkeyup='saveValue(this);'><br>
+						<tr> <label class="hiddenclass" id="message22">Enter a valid Email</label></tr><br>
 						Alt. Phone no.:
-					   <input class="type1" type="tel" name="altPhoneNumber"placeholder="eg:123456789" ><br><br>
+					   <input class="type1" type="tel" name="altPhoneNumber" id="altPhoneNumber" placeholder="eg:123456789" onkeyup='saveValue(this);'><br>
+					   <tr> <label class="hiddenclass" id="message23">Enter a valid Ph.no.</label></tr><br>
 					</div>
   
 					<br>
@@ -59,17 +68,22 @@
 
 						<h2>Current Address</h2>
 						<h4>Address line1:<sup class="star">*</sup>
-						<input class="type1" type="text" name="address1" placeholder="building number/house number/street" ><br><br>
+						<input class="type1" type="text" name="address1" id="address1" placeholder="building number/house number" onkeyup='saveValue(this);'><br>
+						<tr> <label class="hiddenclass" id="message10">Enter address field</label></tr><br>
 						Address line2:<sup class="star">*</sup>
-						<input class="type1" type="text" name="address2"placeholder="area/locality/city"  ><br><br>
+						<input class="type1" type="text" name="address2" id="address2" placeholder="area/locality/city"  onkeyup='saveValue(this);'><br>
+						<tr> <label class="hiddenclass" id="message11">Enter address field</label></tr><br>
 						District:<sup class="star">*</sup>
-						<input class="type1" type="text" name="district" placeholder="Your district..." ><br><br>
+						<input class="type1" type="text" name="district" id="district" placeholder="Your district..." onkeyup='saveValue(this);'><br>
+						<tr> <label class="hiddenclass" id="message12">Enter District</label></tr><br>
 						State:<sup class="star">*</sup>
-						<input class="type1" type="text" name="state" placeholder="Your state..." ><br><br>
-						PIN:<sup class="star">*</sup>
-						<input class="type1" type="number" name="pinCode" min="100000" max="999999" placeholder="eg:XXXXXX" ><br><br>
+						<input class="type1" type="text" name="state" id="state" placeholder="Your state..." onkeyup='saveValue(this);' ><br>
+						<tr> <label class="hiddenclass" id="message13">Enter state</label></tr><br>
+						ZIP Code:<sup class="star">*</sup>
+						<input class="type1" type="number" name="pinCode" id="pinCode" min="100000" max="999999" placeholder="eg:XXXXXX" onkeyup='saveValue(this);' ><br>
+						<tr> <label class="hiddenclass" id="message14">Enter Pin Code</label></tr><br>
 						Country:<sup class="star">*</sup>
-						<select name="country" ><br>
+						<select class="type1" name="country" id="country" onchange="saveValue(this);"><br>
 							<option value = "-1" selected>[choose yours]</option>
 						   	<option value = "1">USA</option>
 						   	<option value = "2">UK</option>
@@ -77,32 +91,60 @@
 						</select>
 						
 						<br>
+						<tr> <label class="hiddenclass" id="message15">Enter Country</label></tr>
 						<br>
 					
-						<input style="margin-top:10px" type="checkbox" name="filladdress" onclick="fillAddress(this.form)" /> Present address same as permanent address.<br /><br>
+						<input style="margin-top:10px" type="checkbox" name="filladdress" id="filladdress" onclick="fillAddress(this.form)" > Present address same as permanent address.<br /><br>
 						
 						<h2>Permanent Address</h2>
 						<h4>Address line1:<sup class="star">*</sup>
-						<input class="type1" type="text" name="pAddress1" placeholder="building number/house number/street" ><br><br>
+						<input class="type1" type="text" name="pAddress1" id="pAddress1" placeholder="building number/house number/street" onkeyup='saveValue(this);' ><br>
+						<tr> <label class="hiddenclass" id="message16">Enter address field</label></tr><br>
 						Address line2:<sup class="star">*</sup>
-						<input class="type1" type="text" name="pAddress2"placeholder="area/locality/city"  ><br><br>
+						<input class="type1" type="text" name="pAddress2" id="pAddress2" placeholder="area/locality/city" onkeyup='saveValue(this);' ><br>
+						<tr> <label class="hiddenclass" id="message17">Enter address field</label></tr><br>
 						District:<sup class="star">*</sup>
-						<input class="type1" type="text" name="pDistrict" placeholder="Your district..." ><br><br>
+						<input class="type1" type="text" name="pDistrict" id="pDistrict" placeholder="Your district..." onkeyup='saveValue(this);'><br>
+						<tr> <label class="hiddenclass" id="message18">Eneter District</label></tr><br>
 						State:<sup class="star">*</sup>
-						<input class="type1" type="text" name="pState" placeholder="Your state..." ><br><br>
-						PIN:<sup class="star">*</sup>
-						<input class="type1" type="number" name="pPinCode" min="100000" max="999999" placeholder="eg:XXXXXX" ><br><br>
+						<input class="type1" type="text" name="pState" id="pState" placeholder="Your state..."onkeyup='saveValue(this);' ><br>
+						<tr> <label class="hiddenclass" id="message19">Enter State</label></tr><br>
+						ZIP Code:<sup class="star">*</sup>
+						<input class="type1" type="number" name="pPinCode" id="pPinCode" min="100000" max="999999" placeholder="eg:XXXXXX" onkeyup='saveValue(this);' ><br>
+						<tr> <label class="hiddenclass" id="message20">Enter Pin Code</label></tr><br>
 						Country:<sup class="star">*</sup>
-						<select name="pCountry" >
+						<select class="type1" name="pCountry" id="pCountry" onchange="saveValue(this);" >
 							<option value = "-1" selected>[choose yours]</option>
 						   	<option value = "1">USA</option>
 						   	<option value = "2">UK</option>
-						   	<option value = "3">INDIA</option>
-						
+							<option value = "3">INDIA</option>
+						</select>
+						<br>
+						<tr> <label class="hiddenclass" id="message21">Enter Country</label></tr>
+
 				  </div>
-				  <input class="q" type="submit" name="submit" value="SUBMIT" style="display: block; margin-top:30px auto; width:24%; height:28px;size:7; background-color:white ; position:center" >
+				  <br>
+				  <input class="type2" type="button" name="submit" onclick="return validate('myTable')" value="SUBMIT" >
+				  <br>
+				  <br>
+				  <br>
 				</div>  
-			<p>
+			</div>
+			<table align="center"  id="myTable" border="1" cellpadding="2">
+				<tr>
+					<td><b>Sl. No.</b></td>
+					<td><b>First Name</b></td>
+					<td><b>Last Name</b></td>
+					<td><b>Father's Name</b></td>
+					<td><b>Mother's Name</b></td>
+					<td><b>Class</b></td>
+					<td><b>E Mail</b></td>
+					<td><b>Ph. Number</b></td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+			&nbsp;
 		</form>
 	</body>
 </html>
