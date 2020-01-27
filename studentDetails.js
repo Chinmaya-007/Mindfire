@@ -67,7 +67,7 @@ function lnamevalidate()
 //this function will check if the field is empty or is in the range between 1 to 10
 function classValidate()
 {
-  if( document.studentDetails.class.value == "" || document.studentDetails.class.value>10 || document.studentDetails.class.value<1  )
+  if( document.studentDetails.class.value.trim() == "" || document.studentDetails.class.value>10 || document.studentDetails.class.value<1  )
   {
     document.getElementById("message3").style.visibility="visible";
     return false;
@@ -104,7 +104,7 @@ function dobValidate()
 // this function will check if the entry field is empty or not.
 function fatherValidate()
 {
-  if( document.studentDetails.fatherName.value == "" )
+  if( document.studentDetails.fatherName.value.trim() == "" )
   {
     document.getElementById("message6").style.visibility="visible";
     return false;
@@ -120,7 +120,7 @@ function fatherValidate()
 // this function will check if the entry field is empty or not.
 function motherValidate()
 {
-  if( document.studentDetails.motherName.value == "" )
+  if( document.studentDetails.motherName.value.trim() == "" )
   {
     document.getElementById("message7").style.visibility="visible";
     return false;
@@ -139,17 +139,24 @@ if the indexof @ is greater than . then it will cast an error
 */
 function mailValidate()
 {
-  var emailID = document.getElementById("email").value;
-  atpos = emailID.indexOf("@");
-  dotpos = emailID.lastIndexOf(".");
-        
-  if (atpos < 1 || ( dotpos - atpos < 2 ))
+  if(document.studentDetails.email.value.trim()!="")
+  {
+    var emailID = document.getElementById("email").value;
+    atpos = emailID.indexOf("@");
+    dotpos = emailID.lastIndexOf(".");
+          
+    if (atpos < 1 || ( dotpos - atpos < 2 ))
+    {
+      document.getElementById("message8").style.visibility="visible";
+      return false;
+    }
+    else{
+      document.getElementById("message8").style.visibility="hidden";
+    }
+  }
+  else
   {
     document.getElementById("message8").style.visibility="visible";
-    return false;
-  }
-  else{
-    document.getElementById("message8").style.visibility="hidden";
   }
 }
 
@@ -160,7 +167,7 @@ any symbol other than digits or not and checks if it is empty
 */
 function phoneValidate()
 {
-  if( document.studentDetails.phoneNumber.value == "" || isNaN( document.studentDetails.phoneNumber.value) || document.studentDetails.phoneNumber.value.length != 10 )
+  if( document.studentDetails.phoneNumber.value.trim() == "" || isNaN( document.studentDetails.phoneNumber.value) || document.studentDetails.phoneNumber.value.length != 10 )
   {
     document.getElementById("message9").style.visibility="visible";
     return false;
@@ -180,7 +187,7 @@ if the indexof @ is greater than . then it will cast an error
 function altMailValidate()
 {
   
-  if(document.studentDetails.altMail.value != "" )
+  if(document.studentDetails.altMail.value.trim() != "" )
   {
     if(document.studentDetails.email.value == document.studentDetails.altMail.value)
     {
@@ -218,7 +225,7 @@ any symbol other than digits or not and checks if it is empty
 */
 function altPhoneValidate()
 {
-  if(document.studentDetails.altPhoneNumber.value!="")
+  if(document.studentDetails.altPhoneNumber.value.trim()!="")
   {
     if(isNaN( document.studentDetails.altPhoneNumber.value) || document.studentDetails.altPhoneNumber.value.length != 10 || document.studentDetails.phoneNumber.value == document.studentDetails.altPhoneNumber.value )
     {
@@ -242,7 +249,7 @@ to enter the data
 */
 function add1Validate()
 {
-  if( document.studentDetails.address1.value == "" )
+  if( document.studentDetails.address1.value.trim() == "" )
   {
     document.getElementById("message10").style.visibility="visible";
     return false;
@@ -260,7 +267,7 @@ to enter the data
 */
 function add2Validate()
 {
-  if( document.studentDetails.address2.value == "" )
+  if( document.studentDetails.address2.value.trim() == "" )
   {
     document.getElementById("message11").style.visibility="visible";
     return false;
@@ -278,7 +285,7 @@ to enter the data
 */
 function distValidate()
 {
-  if( document.studentDetails.district.value == "" )
+  if( document.studentDetails.district.value.trim() == "" )
   {
     document.getElementById("message12").style.visibility="visible";
     return false;
@@ -294,7 +301,7 @@ to enter the data
 */
 function stateValidate()
 {
-  if( document.studentDetails.state.value == "" )
+  if( document.studentDetails.state.value.trim() == "" )
   {
     document.getElementById("message13").style.visibility="visible";
     return false;
@@ -312,7 +319,7 @@ any charcyter other than numbers and finally it checks if the length is less tha
 */
 function pinValidate()
 {
-  if( document.studentDetails.pinCode.value == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
+  if( document.studentDetails.pinCode.value.trim() == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
   {
     document.getElementById("message14").style.visibility="visible";
     return false;
@@ -345,7 +352,7 @@ to enter the data
 */
 function permanentAdd1Validate()
 {
-  if( document.studentDetails.pAddress1.value == "" )
+  if( document.studentDetails.pAddress1.value.trim() == "" )
   {
     document.getElementById("message16").style.visibility="visible";
     return false;
@@ -363,7 +370,7 @@ to enter the data
 */
 function permanentAdd2Validate()
 {
-  if( document.studentDetails.pAddress2.value == "" )
+  if( document.studentDetails.pAddress2.value.trim() == "" )
   {
     document.getElementById("message17").style.visibility="visible";
     return false;
@@ -382,7 +389,7 @@ to enter the data
 */
 function permanentDistValidate()
 {
-  if( document.studentDetails.pDistrict.value == "" )
+  if( document.studentDetails.pDistrict.value.trim() == "" )
   {
     document.getElementById("message18").style.visibility="visible";
     return false;
@@ -399,7 +406,7 @@ to enter the data
 */
 function permanentStateValidate()
 {
-  if( document.studentDetails.state.value == "" )
+  if( document.studentDetails.state.value.trim() == "" )
   {
     document.getElementById("message19").style.visibility="visible";
     return false;
@@ -418,7 +425,7 @@ any charcyter other than numbers and finally it checks if the length is less tha
 */
 function permanentPinValidate()
 {
-  if( document.studentDetails.pPinCode.value == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
+  if( document.studentDetails.pPinCode.value.trim() == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
   {
     document.getElementById("message20").style.visibility="visible";
     return false;
@@ -507,6 +514,7 @@ addRow() which adds the elements to the table
 function validate(tableID)
 {
   var x = document.getElementById("firstName").value.trim();
+  //this function will first trim the spaces and then check if it is valid or not.
   if( x == "" )
   {
     document.getElementById("message1").style.visibility="visible";
@@ -515,7 +523,7 @@ function validate(tableID)
     document.getElementById("message1").style.visibility="hidden";
   }
 
-
+  //this function will first trim the spaces and then check if it is valid or not
   if( document.studentDetails.lastName.value.trim() == "" )
   {
     document.getElementById("message2").style.visibility="visible";
@@ -524,8 +532,8 @@ function validate(tableID)
     document.getElementById("message2").style.visibility="hidden";
   }
 
-
-  if( document.studentDetails.class.value == "" )
+  //this function will check if the field is empty or is in the range between 1 to 10
+  if( document.studentDetails.class.value == "" || document.studentDetails.class.value>10 || document.studentDetails.class.value<1 )
   {
     document.getElementById("message3").style.visibility="visible";
   }
@@ -533,7 +541,10 @@ function validate(tableID)
     document.getElementById("message3").style.visibility="hidden";
   }
 
-
+  /*isNan checks if it is Not-a-number and if it finds illegal number then it returns true
+  we are checkin the index number 0-1 ,3-4 and 6-9 if they contain anything other  than number or not 
+  if it finds any illegal number then it will show error
+  */
   var x = document.getElementById("dob").value;
   if(!(isNaN(x.substring(0, 1)) || isNaN(x.substring(3, 4)) || isNaN(x.substring(6, 9))))
   {
@@ -543,7 +554,7 @@ function validate(tableID)
     document.getElementById("message4").style.visibility="hidden";
   }
 
-
+  // this function will check if the entry field is empty or not.
   if( document.studentDetails.fatherName.value == "" )
   {
     document.getElementById("message6").style.visibility="visible";
@@ -552,7 +563,7 @@ function validate(tableID)
     document.getElementById("message6").style.visibility="hidden";
   }
 
-
+  // this function will check if the entry field is empty or not.
   if( document.studentDetails.motherName.value == "" )
   {
     document.getElementById("message7").style.visibility="visible";
@@ -562,7 +573,9 @@ function validate(tableID)
   }
 
   
-  
+  /*here we are checkin the position of the symbol "@" and the symbol "."
+  if the indexof @ is greater than . then it will cast an error
+  */
   var emailID = document.getElementById("email").value;
   atpos = emailID.indexOf("@");
   dotpos = emailID.lastIndexOf(".");
@@ -575,7 +588,10 @@ function validate(tableID)
     document.getElementById("message8").style.visibility="hidden";
   }
 
-
+  /* it will check if the entered number is of 10 digit or not
+  and if it is 10 digit , it checks if it has any character has 
+  any symbol other than digits or not and checks if it is empty
+  */  
 	if( document.studentDetails.phoneNumber.value == "" || isNaN( document.studentDetails.phoneNumber.value) || document.studentDetails.phoneNumber.value.length != 10 )
 	{
     document.getElementById("message9").style.visibility="visible";
@@ -585,6 +601,9 @@ function validate(tableID)
   }
 
 
+  /*it checks if the address1 field is not left empty and if left then it asks user 
+  to enter the data
+  */
   if( document.studentDetails.address1.value == "" )
   {
     document.getElementById("message10").style.visibility="visible";
@@ -593,7 +612,9 @@ function validate(tableID)
     document.getElementById("message10").style.visibility="hidden";
   }
 
-
+  /*it checks if the address2 field is not left empty and if left then it asks user 
+  to enter the data
+  */
   if( document.studentDetails.address2.value == "" )
   {
     document.getElementById("message11").style.visibility="visible";
@@ -602,7 +623,9 @@ function validate(tableID)
     document.getElementById("message11").style.visibility="hidden";
   } 
 
-
+  /*it checks if the district field is not left empty and if left then it asks user 
+  to enter the data
+  */
   if( document.studentDetails.district.value == "" )
   {
     document.getElementById("message12").style.visibility="visible";
@@ -611,7 +634,9 @@ function validate(tableID)
     document.getElementById("message12").style.visibility="hidden";
   } 
   
-  
+  /*it checks if the state field is not left empty and if left then it asks user 
+  to enter the data
+  */  
   if( document.studentDetails.state.value == "" )
   {
     document.getElementById("message13").style.visibility="visible";
@@ -620,7 +645,10 @@ function validate(tableID)
     document.getElementById("message13").style.visibility="hidden";
   }
   
-  
+  /* it first checks if the pin is empty or not and if not it checks if it has 
+  any charcyter other than numbers and finally it checks if the length is less than
+  6 digits number
+  */
   if( document.studentDetails.pinCode.value == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
   {
     document.getElementById("message14").style.visibility="visible";
@@ -629,7 +657,9 @@ function validate(tableID)
     document.getElementById("message14").style.visibility="hidden";
   }
 
-
+  /*it has first select element whose value id "-1" and if the user have not selected
+  any country it ask ser to select a country from the given list
+  */
   if( document.studentDetails.country.value == "-1" )
   {
     document.getElementById("message15").style.visibility="visible";
@@ -638,7 +668,9 @@ function validate(tableID)
     document.getElementById("message15").style.visibility="hidden";
   }
 
-
+  /*it checks if the address1 field is not left empty and if left then it asks user 
+  to enter the data
+  */
   if( document.studentDetails.pAddress1.value == "" )
   {
     document.getElementById("message16").style.visibility="visible";
@@ -647,7 +679,9 @@ function validate(tableID)
     document.getElementById("message16").style.visibility="hidden";
   }
 
-
+  /*it checks if the address2 field is not left empty and if left then it asks user 
+  to enter the data
+  */
   if( document.studentDetails.pAddress2.value == "" )
   {
     document.getElementById("message17").style.visibility="visible";  
@@ -656,7 +690,9 @@ function validate(tableID)
     document.getElementById("message17").style.visibility="hidden";
   }
 
-
+  /*it checks if the district field is not left empty and if left then it asks user 
+  to enter the data
+  */
   if( document.studentDetails.pDistrict.value == "" )
   {
     document.getElementById("message18").style.visibility="visible";  
@@ -665,7 +701,9 @@ function validate(tableID)
     document.getElementById("message18").style.visibility="hidden";
   }
 
-
+  /*it checks if the state field is not left empty and if left then it asks user 
+  to enter the data
+  */
   if( document.studentDetails.pState.value == "" )
   {
     document.getElementById("message19").style.visibility="visible";
@@ -674,7 +712,10 @@ function validate(tableID)
     document.getElementById("message19").style.visibility="hidden";
   }
 
-
+  /* it first checks if the pin is empty or not and if not it checks if it has 
+  any charcyter other than numbers and finally it checks if the length is less than
+  6 digits number
+  */
   if( document.studentDetails.pPinCode.value == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
   {
     document.getElementById("message20").style.visibility="visible";
@@ -684,7 +725,9 @@ function validate(tableID)
     document.getElementById("message20").style.visibility="hidden";
   }
 
-
+  /*it has first select element whose value id "-1" and if the user have not selected
+  any country it ask ser to select a country from the given list
+  */
   if( document.studentDetails.pCountry.value == "-1" )
   {
     document.getElementById("message21").style.visibility="visible";
@@ -694,6 +737,15 @@ function validate(tableID)
     
   }
 
+
+
+  /* the following lines of code are written because it will now check if
+  the user has visited all the required field or not and if the user haven't 
+  visited any field it will focus to the top most element where the user needs
+  to enter the data and this validation is done second time because in the 
+  first validation section user can see all the fields where he haven't entered 
+  the data and here it will focus to required elements one by one
+  */
 
   var x = document.getElementById("firstName").value.trim();
   if( x == "" )
@@ -719,7 +771,7 @@ function validate(tableID)
   }
 
 
-  if( document.studentDetails.class.value == "" )
+  if( document.studentDetails.class.value == "" || document.studentDetails.class.value>10 || document.studentDetails.class.value<1 )
   {
     document.getElementById("message3").style.visibility="visible";
     document.studentDetails.class.focus() ;
@@ -742,7 +794,7 @@ function validate(tableID)
   }
 
 
-  if( document.studentDetails.fatherName.value == "" )
+  if( document.studentDetails.fatherName.value.trim() == "" )
   {
     document.getElementById("message6").style.visibility="visible";
     document.studentDetails.fatherName.focus() ;
@@ -753,7 +805,7 @@ function validate(tableID)
   }
 
 
-  if( document.studentDetails.motherName.value == "" )
+  if( document.studentDetails.motherName.value.trim() == "" )
   {
     document.getElementById("message7").style.visibility="visible";
     document.studentDetails.motherName.focus() ;
@@ -763,22 +815,31 @@ function validate(tableID)
     document.getElementById("message7").style.visibility="hidden";
   }
 
-
-  var emailID = document.getElementById("email").value;
-  atpos = emailID.indexOf("@");
-  dotpos = emailID.lastIndexOf(".");     
-  if (atpos < 1 || ( dotpos - atpos < 2 ))
+  if(document.studentDetails.email.value.trim()!="")
+  {
+    var emailID = document.getElementById("email").value;
+    atpos = emailID.indexOf("@");
+    dotpos = emailID.lastIndexOf(".");
+          
+    if (atpos < 1 || ( dotpos - atpos < 2 ))
+    {
+      document.getElementById("message8").style.visibility="visible";
+      document.getElementById("email").focus() ;
+      return false;
+    }
+    else{
+      document.getElementById("message8").style.visibility="hidden";
+    }
+  }
+  else
   {
     document.getElementById("message8").style.visibility="visible";
     document.getElementById("email").focus() ;
     return false;
   }
-  else{
-    document.getElementById("message8").style.visibility="hidden";
-  }
 
 
-	if( document.studentDetails.phoneNumber.value == "" || isNaN( document.studentDetails.phoneNumber.value) || document.studentDetails.phoneNumber.value.length != 10 )
+	if( document.studentDetails.phoneNumber.value.trim() == "" || isNaN( document.studentDetails.phoneNumber.value) || document.studentDetails.phoneNumber.value.length != 10 )
 	{
     document.getElementById("message9").style.visibility="visible";
     document.studentDetails.phoneNumber.focus() ;
@@ -789,7 +850,7 @@ function validate(tableID)
   }
 
 
-  if( document.studentDetails.address1.value == "" )
+  if( document.studentDetails.address1.value.trim() == "" )
   {
     document.getElementById("message10").style.visibility="visible";
     document.studentDetails.address1.focus() ;
@@ -800,7 +861,7 @@ function validate(tableID)
   }
 
 
-  if( document.studentDetails.address2.value == "" )
+  if( document.studentDetails.address2.value.trim() == "" )
   {
     document.getElementById("message11").style.visibility="visible";
     document.studentDetails.address2.focus() ;
@@ -811,7 +872,7 @@ function validate(tableID)
   } 
 
 
-  if( document.studentDetails.district.value == "" )
+  if( document.studentDetails.district.value.trim() == "" )
   {
     document.getElementById("message12").style.visibility="visible";
     document.studentDetails.district.focus() ;
@@ -822,7 +883,7 @@ function validate(tableID)
   }  
 
 
-  if( document.studentDetails.state.value == "" )
+  if( document.studentDetails.state.value.trim() == "" )
   {
     document.getElementById("message13").style.visibility="visible";
     document.studentDetails.state.focus() ;
@@ -833,7 +894,7 @@ function validate(tableID)
   }  
 
 
-  if( document.studentDetails.pinCode.value == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
+  if( document.studentDetails.pinCode.value.trim() == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
   {
     document.getElementById("message14").style.visibility="visible";
     document.studentDetails.pinCode.focus() ;
@@ -855,7 +916,7 @@ function validate(tableID)
   }
 
 
-  if( document.studentDetails.pAddress1.value == "" )
+  if( document.studentDetails.pAddress1.value.trim() == "" )
   {
     document.getElementById("message16").style.visibility="visible";
     document.studentDetails.pAddress1.focus() ;
@@ -866,7 +927,7 @@ function validate(tableID)
   }
 
 
-  if( document.studentDetails.pAddress2.value == "" )
+  if( document.studentDetails.pAddress2.value.trim() == "" )
   {
     document.getElementById("message17").style.visibility="visible";
     document.studentDetails.pAddress2.focus() ;
@@ -878,7 +939,7 @@ function validate(tableID)
   }
 
 
-  if( document.studentDetails.pDistrict.value == "" )
+  if( document.studentDetails.pDistrict.value.trim() == "" )
   {
     document.getElementById("message18").style.visibility="visible";
     document.studentDetails.pDistrict.focus() ;
@@ -890,7 +951,7 @@ function validate(tableID)
   }
 
 
-  if( document.studentDetails.state.value == "" )
+  if( document.studentDetails.state.value.trim() == "" )
   {
     document.getElementById("message19").style.visibility="visible";
     document.studentDetails.pState.focus() ;
@@ -901,7 +962,7 @@ function validate(tableID)
   }
 
 
-  if( document.studentDetails.pPinCode.value == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
+  if( document.studentDetails.pPinCode.value.trim() == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
   {
     document.getElementById("message20").style.visibility="visible";
     document.studentDetails.pPinCode.focus() ;
