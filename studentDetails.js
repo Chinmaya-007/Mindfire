@@ -486,12 +486,12 @@ function fillAddress(f)
     f.pCountry.value='';
     f.pPinCode.value='';
   }
-  padd1Validate();
-  padd2Validate();
-  pdistValidate();
-  pstateValidate();
-  ppinValidate();
-  pcountryValidate();
+  permanentAdd1Validate();
+  permanentAdd2Validate();
+  permanentDistValidate();
+  permanentStateValidate();
+  permanentPinValidate();
+  permanentCountryValidate();
 }
 
 
@@ -922,9 +922,32 @@ function validate(tableID)
     document.getElementById("message21").style.visibility="hidden";
     
   }
- 
-  addRow(tableID);
+  var i;
+  var j=0;
+  var k=9;
+  var z;
+  var table= document.getElementById("myTable");
+  if(table.rows.length>1){    
+    
+    for(i=1;i<table.rows.length;i++)
+    {
+      z=document.getElementById("myTable").rows[i].cells[k].innerHTML;
+      if(z==document.getElementById("email").value)
+      {
+        alert("this email have been used");
+        document.studentDetails.email.focus() ;
+
+        j=1;
+      }
+    }
+  }
+  if(j==0)
+  {
+    addRow(tableID);
+
+  }
 }
+
 
 
 
@@ -938,7 +961,7 @@ function addRow(tableID)
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
     var cell0 = row.insertCell(0);
-    cell0.innerHTML=tableID.parentNode.parentNode.rowIndex;
+    cell0.innerHTML=table.rows.length-1;
     var cell1 = row.insertCell(1);
     cell1.innerHTML = '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">'
     var cell2 = row.insertCell(2);
@@ -1039,5 +1062,3 @@ function deleteRow(obj) {
   var table = document.getElementById("myTable");
   table.deleteRow(index);
 }
-
-
