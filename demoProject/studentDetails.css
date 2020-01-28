@@ -58,7 +58,7 @@ tr:nth-child(even) {
 }
 
 .hiddenclass{
-	visibility: hidden;
+	display:none;
 	margin-left: 38%;
 	color: red;
 }
