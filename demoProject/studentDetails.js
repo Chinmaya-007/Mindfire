@@ -324,10 +324,19 @@ $(document).ready(function(){
    });
 
 
-  /* it first checks if the pin is empty or not and if not it checks if it has 
-  any charcyter other than numbers and finally it checks if the length is less than
-  6 digits number
+
+  /*
+  * 
+  * it first checks if the pin is empty or not and if not it checks if it has 
+  *any charcyter other than numbers and finally it checks if the length is less than
+  *6 digits number
+  *
+  *
+  *
+  * @param form
+  * @return void
   */
+
   $("#pPinCode").blur(function(){
     if( document.studentDetails.pPinCode.value.trim() == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
     {
@@ -340,8 +349,16 @@ $(document).ready(function(){
    });
 
 
-  /*it has first select element whose value id "-1" and if the user have not selected
-  any country it ask ser to select a country from the given list
+
+  /*
+  * 
+  *it has first select element whose value id "-1" and if the user have not selected
+  *any country it ask ser to select a country from the given list
+  *
+  *
+  *
+  * @param form
+  * @return void
   */
   $("#pCountry").blur(function(){
     if( document.studentDetails.pCountry.value == "-1" )
@@ -359,9 +376,18 @@ $(document).ready(function(){
 
 
 
-/* on clicking the check box in the form page the current address values gets
-copied to the permanent address values
-*/
+
+
+
+  /*
+  * 
+  * on clicking the check box in the form page the current address values gets
+  *copied to the permanent address values
+  *
+  *
+  * @param form
+  * @return void
+  */
 function fillAddress(f)
 {
   var checkbox = $("#filladdress");
@@ -401,9 +427,16 @@ function fillAddress(f)
   permanentPinValidate();
   permanentCountryValidate();
 }
-/*it checks if the address1 field is not left empty and if left then it asks user 
-to enter the data
-*/
+
+  /*
+  * 
+  *it checks if the address1 field is not left empty and if left then it asks user 
+  *to enter the data
+  *
+  *
+  * @param void
+  * @return true/false
+  */
 function permanentAdd1Validate()
 {
   if( document.studentDetails.pAddress1.value.trim() == "" )
@@ -419,9 +452,15 @@ function permanentAdd1Validate()
 
 
 
-/*it checks if the address2 field is not left empty and if left then it asks user 
-to enter the data
-*/
+  /*
+  * 
+  *it checks if the address2 field is not left empty and if left then it asks user 
+  *to enter the data
+  *
+  *
+  * @param void
+  * @return true/false
+  */
 function permanentAdd2Validate()
 {
   if( document.studentDetails.pAddress2.value.trim() == "" )
@@ -438,9 +477,15 @@ function permanentAdd2Validate()
 
 
 
-/*it checks if the district field is not left empty and if left then it asks user 
-to enter the data
-*/
+
+  /*
+  * 
+  *it checks if the district field is not left empty and if left then it asks user 
+  *to enter the data
+  *
+  * @param void
+  * @return true/false
+  */
 function permanentDistValidate()
 {
   if( document.studentDetails.pDistrict.value.trim() == "" )
@@ -455,9 +500,18 @@ function permanentDistValidate()
 
 
 
-/*it checks if the state field is not left empty and if left then it asks user 
-to enter the data
-*/
+
+  /*
+  * 
+  *it checks if the state field is not left empty and if left then it asks user 
+  *to enter the data
+  *
+  *
+  *
+  *
+  * @param void
+  * @return true/false
+  */
 function permanentStateValidate()
 {
   if( document.studentDetails.state.value.trim() == "" )
@@ -473,10 +527,17 @@ function permanentStateValidate()
 
 
 
-/* it first checks if the pin is empty or not and if not it checks if it has 
-any charcyter other than numbers and finally it checks if the length is less than
-6 digits number
-*/
+  /*
+  * 
+  * it first checks if the pin is empty or not and if not it checks if it has 
+  *any charcyter other than numbers and finally it checks if the length is less than
+  *6 digits number
+  *
+  *
+  *
+  * @param void
+  * @return true/false
+  */
 function permanentPinValidate()
 {
   if( document.studentDetails.pPinCode.value.trim() == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
@@ -492,9 +553,17 @@ function permanentPinValidate()
 
 
 
-/*it has first select element whose value id "-1" and if the user have not selected
- any country it ask ser to select a country from the given list
-*/
+
+  /*
+  * 
+  *it has first select element whose value id "-1" and if the user have not selected
+  *any country it ask ser to select a country from the given list
+  *
+  *
+  *
+  * @param void
+  * @return true/false
+  */
 function permanentCountryValidate()
 {
   if( document.studentDetails.pCountry.value == "-1" )
@@ -509,12 +578,19 @@ function permanentCountryValidate()
 
 
 
-/* this function checks if the necessary fields values are entered or not
-because in the function call "onblur()" if someone doesnot enter to a field 
-then it will not show any error messages so when this validate() is called it 
-checks each and every requied fields and if it is true then it calls a functon
-addRow() which adds the elements to the table
-*/
+ 
+  /*
+  * 
+  * this function checks if the necessary fields values are entered or not
+  *because in the function call "onblur()" if someone doesnot enter to a field 
+  *then it will not show any error messages so when this validate() is called it 
+  *checks each and every requied fields and if it is true then it calls a functon
+  *addRow() which adds the elements to the table
+  *
+  *
+  * @param table
+  * @return true/false
+  */
 
 function validate(tableID)
 {
@@ -546,8 +622,8 @@ function validate(tableID)
   }
 
   /*isNan checks if it is Not-a-number and if it finds illegal number then it returns true
-  we are checkin the index number 0-1 ,3-4 and 6-9 if they contain anything other  than number or not 
-  if it finds any illegal number then it will show error
+  *we are checkin the index number 0-1 ,3-4 and 6-9 if they contain anything other  than number or not 
+  *if it finds any illegal number then it will show error
   */
   var x = document.studentDetails.dob.value;
   if(!(isNaN(x.substring(0, 1)) || isNaN(x.substring(3, 4)) || isNaN(x.substring(6, 9))))
@@ -578,7 +654,7 @@ function validate(tableID)
 
   
   /*here we are checkin the position of the symbol "@" and the symbol "."
-  if the indexof @ is greater than . then it will cast an error
+  *if the indexof @ is greater than . then it will cast an error
   */
   var emailID = document.studentDetails.email.value;
   if(document.studentDetails.email.value.trim()!="")
@@ -606,8 +682,8 @@ function validate(tableID)
   }
 
   /* it will check if the entered number is of 10 digit or not
-  and if it is 10 digit , it checks if it has any character has 
-  any symbol other than digits or not and checks if it is empty
+  *and if it is 10 digit , it checks if it has any character has 
+  *any symbol other than digits or not and checks if it is empty
   */  
 	if( document.studentDetails.phoneNumber.value == "" || isNaN( document.studentDetails.phoneNumber.value) || document.studentDetails.phoneNumber.value.length != 10 )
 	{
@@ -619,7 +695,7 @@ function validate(tableID)
 
 
   /*it checks if the address1 field is not left empty and if left then it asks user 
-  to enter the data
+  *to enter the data
   */
   if( document.studentDetails.address1.value == "" )
   {
@@ -630,7 +706,7 @@ function validate(tableID)
   }
 
   /*it checks if the address2 field is not left empty and if left then it asks user 
-  to enter the data
+  *to enter the data
   */
   if( document.studentDetails.address2.value == "" )
   {
@@ -641,7 +717,7 @@ function validate(tableID)
   } 
 
   /*it checks if the district field is not left empty and if left then it asks user 
-  to enter the data
+  *to enter the data
   */
   if( document.studentDetails.district.value == "" )
   {
@@ -652,7 +728,7 @@ function validate(tableID)
   } 
   
   /*it checks if the state field is not left empty and if left then it asks user 
-  to enter the data
+  *to enter the data
   */  
   if( document.studentDetails.state.value == "" )
   {
@@ -663,8 +739,8 @@ function validate(tableID)
   }
   
   /* it first checks if the pin is empty or not and if not it checks if it has 
-  any charcyter other than numbers and finally it checks if the length is less than
-  6 digits number
+  *any charcyter other than numbers and finally it checks if the length is less than
+  *6 digits number
   */
   if( document.studentDetails.pinCode.value == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
   {
@@ -675,7 +751,7 @@ function validate(tableID)
   }
 
   /*it has first select element whose value id "-1" and if the user have not selected
-  any country it ask ser to select a country from the given list
+  *any country it ask ser to select a country from the given list
   */
   if( document.studentDetails.country.value == "-1" )
   {
@@ -686,7 +762,7 @@ function validate(tableID)
   }
 
   /*it checks if the address1 field is not left empty and if left then it asks user 
-  to enter the data
+  *to enter the data
   */
   if( document.studentDetails.pAddress1.value == "" )
   {
@@ -697,7 +773,7 @@ function validate(tableID)
   }
 
   /*it checks if the address2 field is not left empty and if left then it asks user 
-  to enter the data
+  *to enter the data
   */
   if( document.studentDetails.pAddress2.value == "" )
   {
@@ -708,7 +784,7 @@ function validate(tableID)
   }
 
   /*it checks if the district field is not left empty and if left then it asks user 
-  to enter the data
+  *to enter the data
   */
   if( document.studentDetails.pDistrict.value == "" )
   {
@@ -719,7 +795,7 @@ function validate(tableID)
   }
 
   /*it checks if the state field is not left empty and if left then it asks user 
-  to enter the data
+  *to enter the data
   */
   if( document.studentDetails.pState.value == "" )
   {
@@ -730,8 +806,8 @@ function validate(tableID)
   }
 
   /* it first checks if the pin is empty or not and if not it checks if it has 
-  any charcyter other than numbers and finally it checks if the length is less than
-  6 digits number
+  *any charcyter other than numbers and finally it checks if the length is less than
+  *6 digits number
   */
   if( document.studentDetails.pPinCode.value == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
   {
@@ -755,13 +831,19 @@ function validate(tableID)
   }
 
 
-
-  /* the following lines of code are written because it will now check if
-  the user has visited all the required field or not and if the user haven't 
-  visited any field it will focus to the top most element where the user needs
-  to enter the data and this validation is done second time because in the 
-  first validation section user can see all the fields where he haven't entered 
-  the data and here it will focus to required elements one by one
+ 
+  /*
+  * 
+  *the following lines of code are written because it will now check if
+  *the user has visited all the required field or not and if the user haven't 
+  *visited any field it will focus to the top most element where the user needs
+  *to enter the data and this validation is done second time because in the 
+  *first validation section user can see all the fields where he haven't entered 
+  *the data and here it will focus to required elements one by one
+  *
+  *
+  * @param void
+  * @return void
   */
 
   
@@ -1026,9 +1108,15 @@ function validate(tableID)
 
 
 
-/*this function will create the table taking all the values from the input 
-fields of the form and stores them in the table and then it resets the form
- so that the input firls should no longer be seen in this.
+ /*
+ * 
+ *this function will create the table taking all the values from the input 
+ *fields of the form and stores them in the table and then it resets the form
+ *so that the input firls should no longer be seen in this.
+ *
+ *
+ * @param table
+ * @return void
  */
 function addRow(tableID)
 {
@@ -1092,11 +1180,15 @@ function addRow(tableID)
 
 
 
-/*when we click on this editRow() the it copies all the fields from the 
-form to the table and after this it calls the deleteRow() so that after 
-loading the table entries to the form it will not show the values in
-the table*/
-
+ /*
+ * when we click on this editRow() the it copies all the fields from the 
+ *form to the table and after this it calls the deleteRow() so that after 
+ *loading the table entries to the form it will not show the values in
+ *the table
+ *
+ * @param table
+ * @return void
+ */
 function editRow(obj)
 {
   var row = obj.parentNode.parentNode.rowIndex;
@@ -1129,11 +1221,15 @@ function editRow(obj)
   
 }
 
-/* it will delete the current row where it will be clicked
-*/
+  /*
+  * Used to delete the current row where it will be clicked.
+  *
+  * @param table 
+  * @return void
+  */
 function deleteRow(obj) {
     
   var index = obj.parentNode.parentNode.rowIndex;
-  var table = $("#myTable");
+  var table =  document.getElementById("myTable");
   table.deleteRow(index);
 }
