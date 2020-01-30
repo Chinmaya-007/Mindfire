@@ -1,0 +1,60 @@
+
+
+.star{
+	color:red;
+}
+table{
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 90%;
+	display: block;
+	overflow-x: scroll;
+}
+  
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+  
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+
+.hiddenclass{
+	display:none;
+	margin-left: 38%;
+	color: red;
+	font-size: 14px;
+}
+	
+	  
+h1{
+	font-family: "Times New Roman", Times, serif;
+	text-align:center;
+	position: center;
+	color:white;
+}
+	  
+h2{
+	font: 1.8em "Fira Sans", serif;
+	text-align:left;
+	position: center;	
+}
+	  
+h4{
+	text-align:center-left;
+	position: center;
+	margin-left: 12%;
+}
+	  
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button 
+{
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance:textfield;
+}

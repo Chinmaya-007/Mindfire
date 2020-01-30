@@ -19,7 +19,6 @@ $(document).ready(function(){
   * @param void
   * @return true/false
   */
-  $("#buttonAlert").hide();
   $("#firstName").blur(function(){ 
     if( document.studentDetails.firstName.value.trim()== "" )
     {
@@ -1280,7 +1279,9 @@ function validate(tableID)
       }
     }
   }
-  $("#buttonAlert").show();
+  $('#myModal').modal('toggle');
+  $('#myModal').modal('show');
+  $('#deleteTable').hide();
   if(j==0)
   {
     addRow(tableID);
@@ -1313,49 +1314,49 @@ function addRow(tableID)
     var cell2 = row.insertCell(2);
     cell2.innerHTML = '<input type="button" value = "Edit" onClick="Javacsript:editRow(this)">'
     var cell3 = row.insertCell(3);
-    cell3.innerHTML=document.studentDetails.firstName.value;
+    cell3.innerHTML=$('#firstName').val();
     var cell4 = row.insertCell(4);
-    cell4.innerHTML=document.studentDetails.lastName.value;
+    cell4.innerHTML=$('#lastName').val();
     var cell5 = row.insertCell(5);
-    cell5.innerHTML=document.studentDetails.class.value;
+    cell5.innerHTML=$('#class').val();
     var cell6 = row.insertCell(6);
-    cell6.innerHTML=document.studentDetails.dob.value;
+    cell6.innerHTML=$('#dob').val();
     var cell7 = row.insertCell(7);
-    cell7.innerHTML=document.studentDetails.fatherName.value;
+    cell7.innerHTML=$('#fatherName').val();;
     var cell8 = row.insertCell(8);
-    cell8.innerHTML=document.studentDetails.motherName.value;
+    cell8.innerHTML=$('#motherName').val();
     var cell9 = row.insertCell(9);
-    cell9.innerHTML=document.studentDetails.email.value;
+    cell9.innerHTML=$('#email').val();
     var cell10 = row.insertCell(10);
-    cell10.innerHTML=document.studentDetails.phoneNumber.value;
+    cell10.innerHTML=$('#phoneNumber').val();
     var cell11 = row.insertCell(11);
-    cell11.innerHTML = document.studentDetails.altMail.value;
+    cell11.innerHTML =$('#altMail').val();
     var cell12 = row.insertCell(12);
-    cell12.innerHTML = document.studentDetails.altPhoneNumber.value;
+    cell12.innerHTML = $('#altPhoneNumber').val();
     var cell13 = row.insertCell(13);
-    cell13.innerHTML=document.studentDetails.address1.value;
+    cell13.innerHTML=$('#address1').val();
     var cell14 = row.insertCell(14);
-    cell14.innerHTML=document.studentDetails.address2.value;
+    cell14.innerHTML=$('#address2').val();
     var cell15 = row.insertCell(15);
-    cell15.innerHTML=document.studentDetails.district.value;
+    cell15.innerHTML=$('#district').val();
     var cell16 = row.insertCell(16);
-    cell16.innerHTML=document.studentDetails.state.value;
+    cell16.innerHTML=$('#state').val();
     var cell17 = row.insertCell(17);
-    cell17.innerHTML=document.studentDetails.pinCode.value;
+    cell17.innerHTML=$('#pinCode').val();
     var cell18 = row.insertCell(18);
-    cell18.innerHTML=document.studentDetails.country.value;
+    cell18.innerHTML=$('#country').val();
     var cell19 = row.insertCell(19);
-    cell19.innerHTML=document.studentDetails.pAddress1.value;
+    cell19.innerHTML=$('#pAddress1').val();
     var cell20 = row.insertCell(20);
-    cell20.innerHTML=document.studentDetails.pAddress2.value;
+    cell20.innerHTML=$('#pAddress2').val();
     var cell21 = row.insertCell(21);
-    cell21.innerHTML = document.studentDetails.pDistrict.value;
+    cell21.innerHTML =$('#pDistrict').val();
     var cell22 = row.insertCell(22);
-    cell22.innerHTML = document.studentDetails.pState.value;
+    cell22.innerHTML = $('#pState').val();
     var cell23 = row.insertCell(23);
-    cell23.innerHTML=document.studentDetails.pPinCode.value;
+    cell23.innerHTML=$('#pPinCode').val();
     var cell24 = row.insertCell(24);
-    cell24.innerHTML=document.studentDetails.pCountry.value;
+    cell24.innerHTML=$('#pCountry').val();
     document.getElementById("myForm").reset();
     return false;
   
@@ -1415,4 +1416,5 @@ function deleteRow(obj) {
   var index = obj.parentNode.parentNode.rowIndex;
   var table =  document.getElementById("myTable");
   table.deleteRow(index);
+  $('#deleteTable').show();
 }
