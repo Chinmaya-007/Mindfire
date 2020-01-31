@@ -9,6 +9,9 @@
 * @param void
 * @return true/false
 */
+var tIndex=1;
+var indicator=1;
+var j=0;
 $(document).ready(function(){
   /*
   * 
@@ -494,7 +497,7 @@ $(document).ready(function(){
   * @return true/false
   */
   $("#pState").blur(function(){
-    if( document.studentDetails.state.value.trim() == "" )
+    if( document.studentDetails.pState.value.trim() == "" )
     {
       $("#message19").show();
       return false;
@@ -519,7 +522,7 @@ $(document).ready(function(){
   */
 
   $("#pPinCode").blur(function(){
-    if( document.studentDetails.pPinCode.value.trim() == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
+    if( document.studentDetails.pPinCode.value.trim() == "" || isNaN( document.studentDetails.pPinCode.value) || document.studentDetails.pPinCode.value.length != 6 )
     {
       $("#message20").show();
       return false;
@@ -990,7 +993,7 @@ function validate(tableID)
   *any charcyter other than numbers and finally it checks if the length is less than
   *6 digits number
   */
-  if( document.studentDetails.pPinCode.value == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
+  if( document.studentDetails.pPinCode.value == "" || isNaN( document.studentDetails.pPinCode.value) || document.studentDetails.pPinCode.value.length != 6 )
   {
     $("#message20").show();
     
@@ -1065,7 +1068,7 @@ function validate(tableID)
   var x = document.studentDetails.dob.value;
   if(!(isNaN(x.substring(0, 1)) || isNaN(x.substring(3, 4)) || isNaN(x.substring(6, 9))))
   {
-    $("#message4").style.visibility = "visible";
+    $("#message4").show();
     document.studentDetails.dob.focus();
     return false;
   }  
@@ -1228,7 +1231,7 @@ function validate(tableID)
   }
 
 
-  if( document.studentDetails.state.value.trim() == "" )
+  if( document.studentDetails.pState.value.trim() == "" )
   {
     $("#message19").show();
     document.studentDetails.pState.focus() ;
@@ -1239,7 +1242,7 @@ function validate(tableID)
   }
 
 
-  if( document.studentDetails.pPinCode.value.trim() == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
+  if( document.studentDetails.pPinCode.value.trim() == "" || isNaN( document.studentDetails.pPinCode.value) || document.studentDetails.pPinCode.value.length != 6 )
   {
     $("#message20").show();
     document.studentDetails.pPinCode.focus() ;
@@ -1272,20 +1275,37 @@ function validate(tableID)
       z=document.getElementById("myTable").rows[i].cells[k].innerHTML;
       if(z==document.getElementById("email").value)
       {
-        alert("this email have been used");
         document.studentDetails.email.focus() ;
-
+        $('#emailModal').modal('toggle');
+        $('#emailModal').modal('show');
         j=1;
+        
+
+        
       }
     }
   }
-  $('#myModal').modal('toggle');
-  $('#myModal').modal('show');
-  $('#deleteTable').hide();
+    
+  for(i=1;i<table.rows.length;i++)
+  {
+    z=document.getElementById("myTable").rows[i].cells[9].innerHTML;
+    if(z=="")
+    {
+      
+    }
+  }
+
   if(j==0)
   {
-    addRow(tableID);
+    addRow();
+    $('#myModal').modal('toggle');
+    $('#myModal').modal('show');
+    $('#deleteTable').hide();
 
+  }
+  if(j==1){
+    document.studentDetails.email.focus() ;
+    return false;
   }
 }
 
@@ -1302,13 +1322,28 @@ function validate(tableID)
  * @param table
  * @return void
  */
-function addRow(tableID)
+function addRow()
 {
-    var table = document.getElementById("myTable");
-    var rowCount = table.rows.length;
+  var table= document.getElementById("myTable");
+    var i;
+    var z;
+    var rowCount = tIndex; 
+    
+    for(i=1;i<table.rows.length;i++)
+    {
+      z=document.getElementById("myTable").rows[i].cells[9].innerHTML;
+      if(z=="")
+      {
+        rowCount = i;
+        table.deleteRow(i);
+        tIndex=tIndex-1;
+      }
+    }
+    
+    
     var row = table.insertRow(rowCount);
     var cell0 = row.insertCell(0);
-    cell0.innerHTML=table.rows.length-1;
+    cell0.innerHTML=rowCount;
     var cell1 = row.insertCell(1);
     cell1.innerHTML = '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">'
     var cell2 = row.insertCell(2);
@@ -1358,6 +1393,9 @@ function addRow(tableID)
     var cell24 = row.insertCell(24);
     cell24.innerHTML=$('#pCountry').val();
     document.getElementById("myForm").reset();
+    tIndex=tIndex+1;
+    indicator=1;
+    
     return false;
   
 }
@@ -1400,8 +1438,12 @@ function editRow(obj)
   document.getElementById("pPinCode").value = table.cells[23].innerHTML;
   document.getElementById("pCountry").value=table.cells[24].innerHTML;
   var index = obj.parentNode.parentNode.rowIndex;
-  var table = document.getElementById("myTable");
-  table.deleteRow(index);
+  var cell0 = table.insertCell(9);
+  var x="";
+  cell0.innerHTML=x;
+  indicator=0;
+
+  //table.deleteRow(index);
   
 }
 
@@ -1417,4 +1459,12 @@ function deleteRow(obj) {
   var table =  document.getElementById("myTable");
   table.deleteRow(index);
   $('#deleteTable').show();
+  tIndex=tIndex-1;
+  var row;
+  var rowCount;
+  var cell0 ;
+  
+}
+if(j==1){
+  document.studentDetails.email.focus() ;
 }
