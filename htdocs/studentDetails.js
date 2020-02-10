@@ -202,7 +202,45 @@ $(document).ready(function(){
       $("#message9").hide();
     }
    });
+  /*
+  * 
+  * first it checks if the entered password is of length 8 or not.
+  *
+  *
+  *
+  * @param void
+  * @return true/false
+  */
+ $("#password").blur(function(){
+  if( document.studentDetails.password.value.trim() == "" || document.studentDetails.password.value.length != 8 )
+  {
+    $("#message24").show();
+    return false;
+  }	
+  else{
+    $("#message24").hide();
+  }
+ });
 
+  /*
+  * 
+  * first it checks if the entered password is same as confirm password or not.
+  *
+  *
+  *
+  * @param void
+  * @return true/false
+  */
+ $("#cPassword").blur(function(){
+  if( document.studentDetails.password.value!=document.studentDetails.cPassword.value)
+  {
+    $("#message25").show();
+    return false;
+  }	
+  else{
+    $("#message25").hide();
+  }
+ });
 
   /*
   * 
@@ -572,212 +610,214 @@ $(document).ready(function(){
   * @param form
   * @return void
   */
-function fillAddress(f)
-{
-  var checkbox = $("#filladdress");
-  localStorage.setItem('filladdress', checkbox.checked);
-  if (f.filladdress.checked == true)
-  {
-    $("#pAddress1").value = $("#address1").value;
-    $("#pAddress2").value = $("#address2").value
-    $("#pDistrict").value = $("#district").value;
-    $("#pState").value = $("#state").value;
-    $("#pPinCode").value = $("#pinCode").value;
-    f.pAddress1.value=f.address1.value;
-    f.pAddress2.value=f.address2.value;
-    f.pDistrict.value=f.district.value;
-    f.pState.value=f.state.value;
-    f.pCountry.value=f.country.value;
-    f.pPinCode.value=f.pinCode.value;       
-  }
-  else
-  {
-    $("#pAddress1").value = '';
-    $("#pAddress2").value = '';
-    $("#pDistrict").value = '';
-    $("#pState").value = '';
-    $("#pPinCode").value = '';
-    f.pAddress1.value='';
-    f.pAddress2.value='';
-    f.pDistrict.value='';
-    f.pState.value='';
-    f.pCountry.value='';
-    f.pPinCode.value='';
-  }
-  permanentAdd1Validate();
-  permanentAdd2Validate();
-  permanentDistValidate();
-  permanentStateValidate();
-  permanentPinValidate();
-  permanentCountryValidate();
-}
-
-  /*
-  * 
-  *it checks if the address1 field is not left empty and if left then it asks user 
-  *to enter the data
-  *
-  *
-  * @param void
-  * @return true/false
-  */
-function permanentAdd1Validate()
-{
-  if( document.studentDetails.pAddress1.value.trim() == "" )
-  {
-    document.getElementById("message16").style.visibility="visible";
-    return false;
-  }
-  else{
-    document.getElementById("message16").style.visibility="hidden";
-  }
-
-}
-
-
-
-  /*
-  * 
-  *it checks if the address2 field is not left empty and if left then it asks user 
-  *to enter the data
-  *
-  *
-  * @param void
-  * @return true/false
-  */
-function permanentAdd2Validate()
-{
-  if( document.studentDetails.pAddress2.value.trim() == "" )
-  {
-    document.getElementById("message17").style.visibility="visible";
-    return false;
-  }  
-  else{
-    document.getElementById("message17").style.visibility="hidden";
-  }
-
-}
-
-
-
-
-
-  /*
-  * 
-  *it checks if the district field is not left empty and if left then it asks user 
-  *to enter the data
-  *
-  * @param void
-  * @return true/false
-  */
-function permanentDistValidate()
-{
-  if( document.studentDetails.pDistrict.value.trim() == "" )
-  {
-    document.getElementById("message18").style.visibility="visible";
-    return false;
-  } 
-  else{
-    document.getElementById("message18").style.visibility="hidden";
-  }
-}
-
-
-
-
-  /*
-  * 
-  *it checks if the state field is not left empty and if left then it asks user 
-  *to enter the data
-  *
-  *
-  *
-  *
-  * @param void
-  * @return true/false
-  */
-function permanentStateValidate()
-{
-  if( document.studentDetails.state.value.trim() == "" )
-  {
-    document.getElementById("message19").style.visibility="visible";
-    return false;
-  } 
-  else{
-    document.getElementById("message19").style.visibility="hidden";
-  }
-}
-
-
-
-
-  /*
-  * 
-  * it first checks if the pin is empty or not and if not it checks if it has 
-  *any charcyter other than numbers and finally it checks if the length is less than
-  *6 digits number
-  *
-  *
-  *
-  * @param void
-  * @return true/false
-  */
-function permanentPinValidate()
-{
-  if( document.studentDetails.pPinCode.value.trim() == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
-  {
-    document.getElementById("message20").style.visibility="visible";
-    return false;
-  }
-  else{
-    document.getElementById("message20").style.visibility="hidden";
-  }
-}
-
-
-
-
-
-  /*
-  * 
-  *it has first select element whose value id "-1" and if the user have not selected
-  *any country it ask ser to select a country from the given list
-  *
-  *
-  *
-  * @param void
-  * @return true/false
-  */
-function permanentCountryValidate()
-{
-  if( document.studentDetails.pCountry.value == "-1" )
-  {
-    document.getElementById("message21").style.visibility="visible";
-    return false;
-  } 
-  else{
-    document.getElementById("message21").style.visibility="hidden";
-  }
-}
-
-
-
+ function fillAddress(f)
+ {
+   var checkbox = $("#filladdress");
+   localStorage.setItem('filladdress', checkbox.checked);
+   if (f.filladdress.checked == true)
+   {
+     $("#pAddress1").value = $("#address1").value;
+     $("#pAddress2").value = $("#address2").value
+     $("#pDistrict").value = $("#district").value;
+     $("#pState").value = $("#state").value;
+     $("#pPinCode").value = $("#pinCode").value;
+     f.pAddress1.value=f.address1.value;
+     f.pAddress2.value=f.address2.value;
+     f.pDistrict.value=f.district.value;
+     f.pState.value=f.state.value;
+     f.pCountry.value=f.country.value;
+     f.pPinCode.value=f.pinCode.value;       
+   }
+   else
+   {
+     $("#pAddress1").value = '';
+     $("#pAddress2").value = '';
+     $("#pDistrict").value = '';
+     $("#pState").value = '';
+     $("#pPinCode").value = '';
+     f.pAddress1.value='';
+     f.pAddress2.value='';
+     f.pDistrict.value='';
+     f.pState.value='';
+     f.pCountry.value='';
+     f.pPinCode.value='';
+   }
+   permanentAdd1Validate();
+   permanentAdd2Validate();
+   permanentDistValidate();
+   permanentStateValidate();
+   permanentPinValidate();
+   permanentCountryValidate();
+ }
  
-  /*
-  * 
-  * this function checks if the necessary fields values are entered or not
-  *because in the function call "onblur()" if someone doesnot enter to a field 
-  *then it will not show any error messages so when this validate() is called it 
-  *checks each and every requied fields and if it is true then it calls a functon
-  *addRow() which adds the elements to the table
-  *
-  *
-  * @param table
-  * @return true/false
-  */
+   /*
+   * 
+   *it checks if the address1 field is not left empty and if left then it asks user 
+   *to enter the data
+   *
+   *
+   * @param void
+   * @return true/false
+   */
+ function permanentAdd1Validate()
+ {
+   if( document.studentDetails.pAddress1.value.trim() == "" )
+   {
+     document.getElementById("message16").style.visibility="visible";
+     return false;
+   }
+   else{
+     document.getElementById("message16").style.visibility="hidden";
+   }
+ 
+ }
+ 
+ 
+ 
+   /*
+   * 
+   *it checks if the address2 field is not left empty and if left then it asks user 
+   *to enter the data
+   *
+   *
+   * @param void
+   * @return true/false
+   */
+ function permanentAdd2Validate()
+ {
+   if( document.studentDetails.pAddress2.value.trim() == "" )
+   {
+     document.getElementById("message17").style.visibility="visible";
+     return false;
+   }  
+   else{
+     document.getElementById("message17").style.visibility="hidden";
+   }
+ 
+ }
+ 
+ 
+ 
+ 
+ 
+   /*
+   * 
+   *it checks if the district field is not left empty and if left then it asks user 
+   *to enter the data
+   *
+   * @param void
+   * @return true/false
+   */
+ function permanentDistValidate()
+ {
+   if( document.studentDetails.pDistrict.value.trim() == "" )
+   {
+     document.getElementById("message18").style.visibility="visible";
+     return false;
+   } 
+   else{
+     document.getElementById("message18").style.visibility="hidden";
+   }
+ }
+ 
+ 
+ 
+ 
+   /*
+   * 
+   *it checks if the state field is not left empty and if left then it asks user 
+   *to enter the data
+   *
+   *
+   *
+   *
+   * @param void
+   * @return true/false
+   */
+ function permanentStateValidate()
+ {
+   if( document.studentDetails.state.value.trim() == "" )
+   {
+     document.getElementById("message19").style.visibility="visible";
+     return false;
+   } 
+   else{
+     document.getElementById("message19").style.visibility="hidden";
+   }
+ }
+ 
+ 
+ 
+ 
+   /*
+   * 
+   * it first checks if the pin is empty or not and if not it checks if it has 
+   *any charcyter other than numbers and finally it checks if the length is less than
+   *6 digits number
+   *
+   *
+   *
+   * @param void
+   * @return true/false
+   */
+ function permanentPinValidate()
+ {
+   if( document.studentDetails.pPinCode.value.trim() == "" || isNaN( document.studentDetails.pinCode.value) || document.studentDetails.pinCode.value.length != 6 )
+   {
+     document.getElementById("message20").style.visibility="visible";
+     return false;
+   }
+   else{
+     document.getElementById("message20").style.visibility="hidden";
+   }
+ }
+ 
+ 
+ 
+ 
+ 
+   /*
+   * 
+   *it has first select element whose value id "-1" and if the user have not selected
+   *any country it ask ser to select a country from the given list
+   *
+   *
+   *
+   * @param void
+   * @return true/false
+   */
+ function permanentCountryValidate()
+ {
+   if( document.studentDetails.pCountry.value == "-1" )
+   {
+     document.getElementById("message21").style.visibility="visible";
+     return false;
+   } 
+   else{
+     document.getElementById("message21").style.visibility="hidden";
+   }
+ }
+ 
+ 
+ 
+  
+   /*
+   * 
+   * this function checks if the necessary fields values are entered or not
+   *because in the function call "onblur()" if someone doesnot enter to a field 
+   *then it will not show any error messages so when this validate() is called it 
+   *checks each and every requied fields and if it is true then it calls a functon
+   *addRow() which adds the elements to the table
+   *
+   *
+   * @param table
+   * @return true/false
+   */
+  
 
-function validate(tableID)
+function validate(event)
 {
+  console.log(event);
   //this function will first trim the spaces and then check if it is valid or not.
   if( document.studentDetails.firstName.value.trim() == "" )
   {
@@ -859,10 +899,28 @@ function validate(tableID)
   function IsEmail(email) {
     var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if(!regex.test(email)) {
-      return false;
+      event.preventDefault();
     }else{
       return true;
     }
+  }
+
+
+
+  if( document.studentDetails.password.value.trim() == "" || document.studentDetails.password.value.length != 8 )
+  {
+    $("#message24").show();
+  }	
+  else{
+    $("#message24").hide();
+  }
+
+  if( document.studentDetails.password.value!=document.studentDetails.cPassword.value)
+  {
+    $("#message25").show();
+  }	
+  else{
+    $("#message25").hide();
   }
 
   /* it will check if the entered number is of 10 digit or not
@@ -1034,8 +1092,8 @@ function validate(tableID)
   if( document.studentDetails.firstName.value.trim() == "" )
   {
     $("#message1").show();
-    document.studentDetails.firstName.focus()
-    return false;
+    document.studentDetails.firstName.focus();
+    event.preventDefault(); return false;
     
   }
   else{
@@ -1046,8 +1104,8 @@ function validate(tableID)
   if( document.studentDetails.lastName.value.trim() == "" )
   {
     $("#message2").show();
-    document.studentDetails.lastName.focus()
-    return false;
+    document.studentDetails.lastName.focus();
+    event.preventDefault(); return false;
   }
   else{
     $("#message2").hide();
@@ -1058,7 +1116,7 @@ function validate(tableID)
   {
     $("#message3").show();
     document.studentDetails.class.focus() ;
-    return false;
+    event.preventDefault(); return false;
   }
   else{
     $("#message3").hide();
@@ -1070,7 +1128,7 @@ function validate(tableID)
   {
     $("#message4").show();
     document.studentDetails.dob.focus();
-    return false;
+    event.preventDefault(); return false;
   }  
   else{
     $("#message4").hide();
@@ -1081,7 +1139,7 @@ function validate(tableID)
   {
     $("#message6").show();
     document.studentDetails.fatherName.focus() ;
-    return false;
+    event.preventDefault(); return false;
   }
   else{
     $("#message6").hide();
@@ -1092,7 +1150,7 @@ function validate(tableID)
   {
     $("#message7").show();
     document.studentDetails.motherName.focus() ;
-    return false;
+    event.preventDefault(); return false;
   }
   else{
     $("#message7").hide();
@@ -1106,7 +1164,7 @@ function validate(tableID)
     {
       $("#message8").show();
       $("#email").focus() ;
-      return false;
+      event.preventDefault(); return false;
     }
     else{
       $("#message8").hide();
@@ -1116,14 +1174,37 @@ function validate(tableID)
   {
     $("#message8").show();
     $("#email").focus() ;
+    event.preventDefault(); return false;
+  }
+
+
+  if( document.studentDetails.password.value.trim() == "" || document.studentDetails.password.value.length != 8 )
+  {
+    $("#message24").show();
+    $("#password").focus() ;
+    event.preventDefault();
     return false;
+  }	
+  else{
+    $("#message24").hide();
+  }
+
+  if( document.studentDetails.password.value!=document.studentDetails.cPassword.value)
+  {
+    $("#message25").show();
+    $("#cPassword").focus() ;
+    event.preventDefault();
+    return false;
+  }	
+  else{
+    $("#message25").hide();
   }
 
 	if( document.studentDetails.phoneNumber.value.trim() == "" || isNaN( document.studentDetails.phoneNumber.value) || document.studentDetails.phoneNumber.value.length != 10 )
 	{
     $("#message9").show();
     document.studentDetails.phoneNumber.focus() ;
-    return false;
+    event.preventDefault(); return false;
   }	
   else{
     $("#message9").hide();
@@ -1134,7 +1215,7 @@ function validate(tableID)
   {
     $("#message10").show();
     document.studentDetails.address1.focus() ;
-    return false;
+    event.preventDefault(); return false;
   }
   else{
     $("#message10").hide();
@@ -1145,7 +1226,7 @@ function validate(tableID)
   {
     $("#message11").show();
     document.studentDetails.address2.focus() ;
-    return false;
+    event.preventDefault(); return false;
   }  
   else{
     $("#message11").hide();
@@ -1156,7 +1237,7 @@ function validate(tableID)
   {
     $("#message12").show();
     document.studentDetails.district.focus() ;
-    return false;
+    event.preventDefault(); return false;
   } 
   else{
     $("#message12").hide();
@@ -1167,7 +1248,7 @@ function validate(tableID)
   {
     $("#message13").show();
     document.studentDetails.state.focus() ;
-    return false;
+    event.preventDefault(); return false;
   } 
   else{
     $("#message13").hide();
@@ -1178,7 +1259,7 @@ function validate(tableID)
   {
     $("#message14").show();
     document.studentDetails.pinCode.focus() ;
-    return false;
+    event.preventDefault(); return false;
   }
   else{
     $("#message14").hide();
@@ -1189,7 +1270,7 @@ function validate(tableID)
   {
     $("#message15").show();
     document.studentDetails.country.focus() ;
-    return false;
+    event.preventDefault(); return false;
   } 
   else{
     $("#message15").hide();
@@ -1200,7 +1281,7 @@ function validate(tableID)
   {
     $("#message16").show();
     document.studentDetails.pAddress1.focus() ;
-    return false;
+    event.preventDefault(); return false;
   }
   else{
     $("#message16").hide();
@@ -1211,7 +1292,7 @@ function validate(tableID)
   {
     $("#message17").show();
     document.studentDetails.pAddress2.focus() ;
-    return false;
+    event.preventDefault(); return false;
     
   }  
   else{
@@ -1223,7 +1304,7 @@ function validate(tableID)
   {
     $("#message18").show();
     document.studentDetails.pDistrict.focus() ;
-    return false;
+    event.preventDefault(); return false;
     
   } 
   else{
@@ -1235,7 +1316,7 @@ function validate(tableID)
   {
     $("#message19").show();
     document.studentDetails.pState.focus() ;
-    return false;
+    event.preventDefault(); return false;
   } 
   else{
     $("#message19").hide();
@@ -1246,7 +1327,7 @@ function validate(tableID)
   {
     $("#message20").show();
     document.studentDetails.pPinCode.focus() ;
-    return false;
+    event.preventDefault(); return false;
   }
   else{
     $("#message20").hide();
@@ -1257,211 +1338,13 @@ function validate(tableID)
   {
     $("#message21").show();
     document.studentDetails.pCountry.focus() ;
-    return false;
+    event.preventDefault(); return false;
   } 
   else{
     $("#message21").hide();
     
   }
-  var i;
-  var j=0;
-  var k=9;
-  var z;
-  var table= document.getElementById("myTable");
-  if(table.rows.length>1){    
+  return true;
+
     
-    for(i=1;i<table.rows.length;i++)
-    {
-      z=document.getElementById("myTable").rows[i].cells[k].innerHTML;
-      if(z==document.getElementById("email").value)
-      {
-        document.studentDetails.email.focus() ;
-        $('#emailModal').modal('toggle');
-        $('#emailModal').modal('show');
-        j=1;
-        
-
-        
-      }
-    }
-  }
-    
-  for(i=1;i<table.rows.length;i++)
-  {
-    z=document.getElementById("myTable").rows[i].cells[9].innerHTML;
-    if(z=="")
-    {
-      
-    }
-  }
-
-  if(j==0)
-  {
-    addRow();
-    $('#myModal').modal('toggle');
-    $('#myModal').modal('show');
-    $('#deleteTable').hide();
-
-  }
-  if(j==1){
-    document.studentDetails.email.focus() ;
-    return false;
-  }
-}
-
-
-
-
- /*
- * 
- *this function will create the table taking all the values from the input 
- *fields of the form and stores them in the table and then it resets the form
- *so that the input firls should no longer be seen in this.
- *
- *
- * @param table
- * @return void
- */
-function addRow()
-{
-  var table= document.getElementById("myTable");
-    var i;
-    var z;
-    var rowCount = tIndex; 
-    
-    for(i=1;i<table.rows.length;i++)
-    {
-      z=document.getElementById("myTable").rows[i].cells[9].innerHTML;
-      if(z=="")
-      {
-        rowCount = i;
-        table.deleteRow(i);
-        tIndex=tIndex-1;
-      }
-    }
-    
-    
-    var row = table.insertRow(rowCount);
-    var cell0 = row.insertCell(0);
-    cell0.innerHTML=rowCount;
-    var cell1 = row.insertCell(1);
-    cell1.innerHTML = '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">'
-    var cell2 = row.insertCell(2);
-    cell2.innerHTML = '<input type="button" value = "Edit" onClick="Javacsript:editRow(this)">'
-    var cell3 = row.insertCell(3);
-    cell3.innerHTML=$('#firstName').val();
-    var cell4 = row.insertCell(4);
-    cell4.innerHTML=$('#lastName').val();
-    var cell5 = row.insertCell(5);
-    cell5.innerHTML=$('#class').val();
-    var cell6 = row.insertCell(6);
-    cell6.innerHTML=$('#dob').val();
-    var cell7 = row.insertCell(7);
-    cell7.innerHTML=$('#fatherName').val();;
-    var cell8 = row.insertCell(8);
-    cell8.innerHTML=$('#motherName').val();
-    var cell9 = row.insertCell(9);
-    cell9.innerHTML=$('#email').val();
-    var cell10 = row.insertCell(10);
-    cell10.innerHTML=$('#phoneNumber').val();
-    var cell11 = row.insertCell(11);
-    cell11.innerHTML =$('#altMail').val();
-    var cell12 = row.insertCell(12);
-    cell12.innerHTML = $('#altPhoneNumber').val();
-    var cell13 = row.insertCell(13);
-    cell13.innerHTML=$('#address1').val();
-    var cell14 = row.insertCell(14);
-    cell14.innerHTML=$('#address2').val();
-    var cell15 = row.insertCell(15);
-    cell15.innerHTML=$('#district').val();
-    var cell16 = row.insertCell(16);
-    cell16.innerHTML=$('#state').val();
-    var cell17 = row.insertCell(17);
-    cell17.innerHTML=$('#pinCode').val();
-    var cell18 = row.insertCell(18);
-    cell18.innerHTML=$('#country').val();
-    var cell19 = row.insertCell(19);
-    cell19.innerHTML=$('#pAddress1').val();
-    var cell20 = row.insertCell(20);
-    cell20.innerHTML=$('#pAddress2').val();
-    var cell21 = row.insertCell(21);
-    cell21.innerHTML =$('#pDistrict').val();
-    var cell22 = row.insertCell(22);
-    cell22.innerHTML = $('#pState').val();
-    var cell23 = row.insertCell(23);
-    cell23.innerHTML=$('#pPinCode').val();
-    var cell24 = row.insertCell(24);
-    cell24.innerHTML=$('#pCountry').val();
-    document.getElementById("myForm").reset();
-    tIndex=tIndex+1;
-    indicator=1;
-    
-    return false;
-  
-}
-
-
-
- /*
- * when we click on this editRow() the it copies all the fields from the 
- *form to the table and after this it calls the deleteRow() so that after 
- *loading the table entries to the form it will not show the values in
- *the table
- *
- * @param table
- * @return void
- */
-function editRow(obj)
-{
-  var row = obj.parentNode.parentNode.rowIndex;
-  table=document.getElementById("myTable").rows[row];
-  document.getElementById("firstName").value = table.cells[3].innerHTML;
-  document.getElementById("lastName").value = table.cells[4].innerHTML;
-  document.getElementById("class").value = table.cells[5].innerHTML;
-  document.getElementById("dob").value = table.cells[6].innerHTML;
-  document.getElementById("fatherName").value = table.cells[7].innerHTML;
-  document.getElementById("motherName").value = table.cells[8].innerHTML;
-  document.getElementById("email").value = table.cells[9].innerHTML;
-  document.getElementById("phoneNumber").value = table.cells[10].innerHTML;
-  document.getElementById("altMail").value = table.cells[11].innerHTML;
-  document.getElementById("altPhoneNumber").value = table.cells[12].innerHTML;
-  document.getElementById("address1").value = table.cells[13].innerHTML;
-  document.getElementById("address2").value = table.cells[14].innerHTML;
-  document.getElementById("district").value = table.cells[15].innerHTML;
-  document.getElementById("state").value = table.cells[16].innerHTML;
-  document.getElementById("pinCode").value = table.cells[17].innerHTML;
-  document.getElementById("country").value=table.cells[18].innerHTML;
-  document.getElementById("pAddress1").value = table.cells[19].innerHTML;
-  document.getElementById("pAddress2").value = table.cells[20].innerHTML;
-  document.getElementById("pDistrict").value = table.cells[21].innerHTML;
-  document.getElementById("pState").value = table.cells[22].innerHTML;
-  document.getElementById("pPinCode").value = table.cells[23].innerHTML;
-  document.getElementById("pCountry").value=table.cells[24].innerHTML;
-  var index = obj.parentNode.parentNode.rowIndex;
-  var cell0 = table.insertCell(9);
-  var x="";
-  cell0.innerHTML=x;
-  indicator=0;
-
-  //table.deleteRow(index);
-  
-}
-
-  /*
-  * Used to delete the current row where it will be clicked.
-  *
-  * @param table 
-  * @return void
-  */
-function deleteRow(obj) {
-    
-  var index = obj.parentNode.parentNode.rowIndex;
-  var table =  document.getElementById("myTable");
-  table.deleteRow(index);
-  $('#deleteTable').show();
-  tIndex=tIndex-1;
-  var row;
-  var rowCount;
-  var cell0 ;
-  
 }
