@@ -1,0 +1,109 @@
+
+
+.star{
+	color:red;
+}
+table{
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 90%;
+	display: block;
+	overflow-x: scroll;
+}
+  
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+  
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+
+.hiddenclass{
+	display:none;
+	margin-left: 38%;
+	color: red;
+	font-size: 14px;
+}
+	
+	  
+h1{
+	font-family: "Times New Roman", Times, serif;
+	text-align:center;
+	position: center;
+	color:white;
+}
+	  
+h2{
+	font: 1.8em "Fira Sans", serif;
+	text-align:left;
+	position: center;	
+}
+	  
+h4{
+	text-align:center-left;
+	position: center;
+	margin-left: 12%;
+}
+	  
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button 
+{
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance:textfield;
+}
+.msg {
+    margin: 30px auto; 
+    padding: 10px; 
+    border-radius: 5px; 
+    color: #3c763d; 
+    background: #dff0d8; 
+    border: 1px solid #3c763d;
+    width: 50%;
+    text-align: center;
+}
+.btn {
+    padding: 10px;
+    font-size: 15px;
+    color: white;
+    background: #5F9EA0;
+    border: none;
+    border-radius: 5px;
+}
+.edit_btn {
+    text-decoration: none;
+    padding: 2px 5px;
+    background: #2E8B57;
+    color: white;
+    border-radius: 3px;
+}
+
+.del_btn {
+    text-decoration: none;
+    padding: 2px 5px;
+    color: white;
+    border-radius: 3px;
+    background: #800000;
+}
+.input-group {
+    margin: 10px 0px 10px 0px;
+}
+.input-group label {
+    display: block;
+    text-align: left;
+    margin: 3px;
+}
+.input-group input {
+    height: 30px;
+    width: 93%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
